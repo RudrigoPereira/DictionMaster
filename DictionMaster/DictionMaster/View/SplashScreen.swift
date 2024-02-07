@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LaunchScreen: View {
+struct SplashScreen: View {
     @State private var isActive = false
     
     var body: some View {
@@ -28,7 +28,8 @@ struct LaunchScreen: View {
                     .padding(.bottom, 100)
                     Spacer()
                     Text("by Rodrigo Ferreira Pereira")
-                        .font(Font.custom("SF Pro Rounded Regular", size: 22))
+                        .font(.system(size: 22, weight: .regular, design: .rounded))
+                        .foregroundColor(Color("#052D39"))
                         .padding(.bottom, 20)
                 }
             }
@@ -45,5 +46,5 @@ struct LaunchScreen: View {
 }
 
 #Preview {
-    LaunchScreen()
+    SplashScreen()
 }
