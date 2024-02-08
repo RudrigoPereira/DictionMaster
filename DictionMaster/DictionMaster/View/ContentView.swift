@@ -60,6 +60,7 @@ struct ContentView: View {
                 .padding(.bottom, 20)
             }
         }
+        .background(Color.white)
         .onReceive(Just(wordInput)) { input in
             isButtonVisible = !input.isEmpty
         }
