@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SplashScreen: View {
+struct SplashScreenView: View {
     @State private var isActive = false
     
     var body: some View {
@@ -46,5 +46,5 @@ struct SplashScreen: View {
 }
 
 #Preview {
-    SplashScreen()
+    SplashScreenView()
 }

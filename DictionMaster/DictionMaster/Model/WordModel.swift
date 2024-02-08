@@ -7,34 +7,25 @@
 
 import Foundation
 
-struct WordInfo {
+struct WordInfo: Codable {
     let word: String
     let phonetics: [Phonetic]
     let meanings: [Meaning]
-    let license: License
-    let sourceUrls: [String]
 }
 
-struct Phonetic {
+struct Phonetic: Codable {
     let text: String?
     let audio: String
-    let sourceUrl: String
-    let license: License
 }
 
-struct Meaning {
+struct Meaning: Codable {
     let partOfSpeech: String
     let definitions: [Definition]
     let synonyms: [String]
     let antonyms: [String]
 }
 
-struct License {
-    let name: String
-    let url: String
-}
-
-struct Definition {
+struct Definition: Codable {
     let definition: String
     let synonyms: [String]
     let antonyms: [String]

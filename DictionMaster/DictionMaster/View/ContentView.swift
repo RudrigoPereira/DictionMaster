@@ -48,7 +48,20 @@ struct ContentView: View {
             if isButtonVisible {
                 Button(action: {
                     // TODO: Aqui chamar a função para consultar a palavra na API
-                    print("Consultar a palavra: \(wordInput)")
+//                    print("Consultar a palavra: \(wordInput)")
+                    
+                    let apiService = DictionaryAPI()
+
+                    apiService.fetchWordInfo(for: wordInput.lowercased()) { result in
+                        switch result {
+                        case .success(let wordInfo):
+                            // Faça algo com as informações da palavra aqui
+                            print(wordInfo)
+                        case .failure(let error):
+                            // Lida com erros de requisição
+                            print("Erro ao obter informações da palavra: \(error)")
+                        }
+                    }
                 }) {
                     Text("SEARCH")
                         .font(.system(size: 18, weight: .bold, design: .rounded))
