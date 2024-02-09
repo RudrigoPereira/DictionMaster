@@ -12,6 +12,7 @@ struct WordResultView: View {
     @StateObject private var viewModel: WordResultViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Binding var wordInput: String
+    @State private var isSpeakerPressed = false
     
     init(wordInfo: WordInfo, wordInput: Binding<String>) {
         self.wordInfo = wordInfo
@@ -33,13 +34,21 @@ struct WordResultView: View {
                 HStack {
                     Circle()
                         .foregroundColor(Color("#5BD6FD"))
+                        .opacity(isSpeakerPressed ? 0.5 : 1.0)
                         .frame(width: 46, height: 46)
                         .overlay(
                             Image(systemName: "speaker.wave.2.fill")
                                 .foregroundColor(.white)
                         )
                         .onTapGesture {
+                            isSpeakerPressed.toggle()
                             viewModel.playAudio()
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                withAnimation {
+                                    isSpeakerPressed = false
+                                }
+                            }
                         }
                     
                     Text(viewModel.firstNonEmptyPhoneticText() ?? "")

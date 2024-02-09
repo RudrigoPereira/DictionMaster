@@ -67,6 +67,7 @@ struct SubscribeView: View {
             
             Spacer()
         }
+        .background(Color.white)
         .ignoresSafeArea()
     }
 }

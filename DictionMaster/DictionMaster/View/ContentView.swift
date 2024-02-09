@@ -9,10 +9,7 @@ import SwiftUI
 import Combine
 
 struct ContentView: View {
-    @State private var wordInput: String = ""
-    @State private var isButtonVisible: Bool = false
-    @State private var isShowingResult = false
-    @State private var wordInfo: WordInfo?
+    @StateObject private var viewModel = WordViewModel()
     
     var body: some View {
         NavigationView {
@@ -36,7 +33,7 @@ struct ContentView: View {
                 
                 TextField(
                     "",
-                    text: $wordInput,
+                    text: $viewModel.wordInput,
                     prompt: Text("Type a word...")
                         .font(.system(size: 32, weight: .regular, design: .rounded))
                         .foregroundColor(Color("#052D39").opacity(0.5))
@@ -44,29 +41,26 @@ struct ContentView: View {
                 .font(.system(size: 32, weight: .bold, design: .rounded))
                 .foregroundColor(Color("#052D39"))
                 .multilineTextAlignment(.center)
-                .padding(.bottom, isButtonVisible ? 25 : 75)
+                .padding(.bottom, viewModel.isButtonVisible ? 25 : 75)
+                .onChange(of: viewModel.wordInput) { _ in
+                    viewModel.updateButtonVisibility()
+                }
                 
                 Spacer()
                 
-                NavigationLink(destination: wordInfo.map { WordResultView(wordInfo: $0, wordInput: $wordInput) }.navigationBarBackButtonHidden(true) , isActive: $isShowingResult) {
+                NavigationLink(destination: viewModel.wordInfo.map { WordResultView(wordInfo: $0, wordInput: $viewModel.wordInput) }.navigationBarBackButtonHidden(true) , isActive: $viewModel.isShowingResult) {
                     EmptyView()
                 }
                 .hidden()
                 
-                if isButtonVisible {
+                NavigationLink(destination: SubscribeView().navigationBarBackButtonHidden(true), isActive: $viewModel.showSubscribeView) {
+                    EmptyView()
+                }
+                .hidden()
+                
+                if viewModel.isButtonVisible {
                     Button(action: {
-                        let apiService = DictionaryAPI()
-                        
-                        apiService.fetchWordInfo(for: wordInput) { result in
-                            switch result {
-                            case .success(let wordInfo):
-                                print(wordInfo)
-                                self.wordInfo = wordInfo
-                                self.isShowingResult = true
-                            case .failure(let error):
-                                print("Erro ao obter informações da palavra: \(error)")
-                            }
-                        }
+                        viewModel.searchWord()
                     }) {
                         Text("SEARCH")
                             .font(.system(size: 18, weight: .bold, design: .rounded))
@@ -79,9 +73,6 @@ struct ContentView: View {
                 }
             }
             .background(Color.white)
-            .onReceive(Just(wordInput)) { input in
-                isButtonVisible = !input.isEmpty
-            }
         }
     }
 }
