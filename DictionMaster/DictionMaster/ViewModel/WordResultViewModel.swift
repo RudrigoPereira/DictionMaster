@@ -5,22 +5,6 @@
 //  Created by Rodrigo Ferreira Pereira on 08/02/24.
 //
 
-//import AVFoundation
-//import SwiftUI
-//
-//class WordResultViewModel: ObservableObject {
-//    private var audioPlayer: AVPlayer?
-//
-//    func playAudio(from url: String) {
-//        guard let audioURL = URL(string: url) else {
-//            return
-//        }
-//
-//        audioPlayer = AVPlayer(url: audioURL)
-//        audioPlayer?.play()
-//    }
-//}
-
 import AVFoundation
 
 class WordResultViewModel: ObservableObject {

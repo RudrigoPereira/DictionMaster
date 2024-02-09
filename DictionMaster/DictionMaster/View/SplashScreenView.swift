@@ -1,5 +1,5 @@
 //
-//  LaunchScreen.swift
+//  SplashScreenView.swift
 //  DictionMaster
 //
 //  Created by Rodrigo Ferreira Pereira on 06/02/24.

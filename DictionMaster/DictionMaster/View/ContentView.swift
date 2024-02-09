@@ -48,11 +48,6 @@ struct ContentView: View {
                 
                 Spacer()
                 
-//                NavigationLink(destination: wordInfo.map { WordResultView(wordInfo: $0) }.navigationBarBackButtonHidden(true) , isActive: $isShowingResult) {
-//                    EmptyView()
-//                }
-//                .hidden()
-                
                 NavigationLink(destination: wordInfo.map { WordResultView(wordInfo: $0, wordInput: $wordInput) }.navigationBarBackButtonHidden(true) , isActive: $isShowingResult) {
                     EmptyView()
                 }
