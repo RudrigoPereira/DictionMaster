@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct SubscribeView: View {
+    @StateObject private var viewModel = SubscribeViewModel()
+    
     var body: some View {
-        VStack {
+        ScrollView {
             Image("woman")
             VStack {
                 Image("icon")
@@ -50,11 +52,12 @@ struct SubscribeView: View {
             }
             .foregroundColor(Color("#052D39"))
             .multilineTextAlignment(.center)
+            .padding(.bottom, 10)
             
             Spacer()
             
             Button(action: {
-                
+                viewModel.openAppStore()
             }) {
                 Text("SUBSCRIBE")
                     .font(.system(size: 18, weight: .bold, design: .rounded))
@@ -64,8 +67,6 @@ struct SubscribeView: View {
                     .cornerRadius(14)
             }
             .padding(.bottom, 20)
-            
-            Spacer()
         }
         .background(Color.white)
         .ignoresSafeArea()

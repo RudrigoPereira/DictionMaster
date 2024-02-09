@@ -53,7 +53,6 @@ class ContentViewModel: ObservableObject {
             isShowingResult = true
         } else {
             if Calendar.current.isDateInToday(Date(timeIntervalSinceReferenceDate: lastSearchDate)) && searchCount >= 5 {
-                print("Limite de pesquisa diária atingido")
                 showSubscribeView = true
                 return
             } else {

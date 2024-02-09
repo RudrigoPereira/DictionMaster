@@ -112,8 +112,9 @@ struct WordResultView: View {
                 Button(action: {
                     DispatchQueue.main.async {
                         self.wordInput = ""
+                        self.presentationMode.wrappedValue.dismiss()
                     }
-                    self.presentationMode.wrappedValue.dismiss()
+                    
                 }) {
                     Text("NEW SEARCH")
                         .font(.system(size: 18, weight: .bold, design: .rounded))
@@ -122,7 +123,7 @@ struct WordResultView: View {
                         .background(Color("#5BD6FD"))
                         .cornerRadius(14)
                 }
-                .padding(.top, 20)
+                .padding(.vertical, 20)
             }
             .padding(.horizontal, 20)
         }

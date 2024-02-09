@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		430BCF192B766C9D0001CAA2 /* SubscribeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430BCF182B766C9D0001CAA2 /* SubscribeViewModel.swift */; };
 		4354ADBD2B75233600757846 /* DictionaryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4354ADBC2B75233600757846 /* DictionaryAPI.swift */; };
 		4354ADBF2B753A8800757846 /* WordResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4354ADBE2B753A8800757846 /* WordResultView.swift */; };
 		4354ADC32B754CAA00757846 /* WordResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4354ADC22B754CAA00757846 /* WordResultViewModel.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		430BCF182B766C9D0001CAA2 /* SubscribeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeViewModel.swift; sourceTree = "<group>"; };
 		4354ADBC2B75233600757846 /* DictionaryAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryAPI.swift; sourceTree = "<group>"; };
 		4354ADBE2B753A8800757846 /* WordResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordResultView.swift; sourceTree = "<group>"; };
 		4354ADC22B754CAA00757846 /* WordResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordResultViewModel.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 			children = (
 				4354ADC22B754CAA00757846 /* WordResultViewModel.swift */,
 				4354ADC62B75E6F400757846 /* ContentViewModel.swift */,
+				430BCF182B766C9D0001CAA2 /* SubscribeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				4354ADC32B754CAA00757846 /* WordResultViewModel.swift in Sources */,
 				4354ADBD2B75233600757846 /* DictionaryAPI.swift in Sources */,
 				43CF9CBB2B7294A700556D4B /* ContentView.swift in Sources */,
+				430BCF192B766C9D0001CAA2 /* SubscribeViewModel.swift in Sources */,
 				4354ADC52B75C69A00757846 /* SubscribeView.swift in Sources */,
 				43CF9CB92B7294A700556D4B /* DictionMasterApp.swift in Sources */,
 				4354ADC72B75E6F400757846 /* ContentViewModel.swift in Sources */,
