@@ -30,8 +30,6 @@ class DictionaryAPI {
                 return
             }
             
-            print(url)
-            
             do {
                 let decoder = JSONDecoder()
                 let wordInfo = try decoder.decode([WordInfo].self, from: data)

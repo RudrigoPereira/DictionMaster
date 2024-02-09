@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4354ADBD2B75233600757846 /* DictionaryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4354ADBC2B75233600757846 /* DictionaryAPI.swift */; };
+		4354ADBF2B753A8800757846 /* WordResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4354ADBE2B753A8800757846 /* WordResultView.swift */; };
+		4354ADC32B754CAA00757846 /* WordResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4354ADC22B754CAA00757846 /* WordResultViewModel.swift */; };
 		43CF9CB92B7294A700556D4B /* DictionMasterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CF9CB82B7294A700556D4B /* DictionMasterApp.swift */; };
 		43CF9CBB2B7294A700556D4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CF9CBA2B7294A700556D4B /* ContentView.swift */; };
 		43CF9CBD2B7294A900556D4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43CF9CBC2B7294A900556D4B /* Assets.xcassets */; };
@@ -18,6 +20,8 @@
 
 /* Begin PBXFileReference section */
 		4354ADBC2B75233600757846 /* DictionaryAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryAPI.swift; sourceTree = "<group>"; };
+		4354ADBE2B753A8800757846 /* WordResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordResultView.swift; sourceTree = "<group>"; };
+		4354ADC22B754CAA00757846 /* WordResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordResultViewModel.swift; sourceTree = "<group>"; };
 		43CF9CB52B7294A700556D4B /* DictionMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DictionMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43CF9CB82B7294A700556D4B /* DictionMasterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionMasterApp.swift; sourceTree = "<group>"; };
 		43CF9CBA2B7294A700556D4B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -41,10 +45,27 @@
 		433289C22B7342C90089ECAF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4354ADBE2B753A8800757846 /* WordResultView.swift */,
 				43CF9CBA2B7294A700556D4B /* ContentView.swift */,
 				43CF9CC62B72961500556D4B /* SplashScreenView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		4354ADC02B754C6B00757846 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4354ADC22B754CAA00757846 /* WordResultViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4354ADC12B754C7A00757846 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4354ADBC2B75233600757846 /* DictionaryAPI.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		43CF9CAC2B7294A700556D4B = {
@@ -67,11 +88,12 @@
 			isa = PBXGroup;
 			children = (
 				43CF9CB82B7294A700556D4B /* DictionMasterApp.swift */,
+				4354ADC12B754C7A00757846 /* Service */,
+				4354ADC02B754C6B00757846 /* ViewModel */,
 				43E427192B73ED71001FEE00 /* Model */,
 				433289C22B7342C90089ECAF /* View */,
 				43CF9CBC2B7294A900556D4B /* Assets.xcassets */,
 				43CF9CBE2B7294A900556D4B /* Preview Content */,
-				4354ADBC2B75233600757846 /* DictionaryAPI.swift */,
 			);
 			path = DictionMaster;
 			sourceTree = "<group>";
@@ -162,11 +184,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4354ADC32B754CAA00757846 /* WordResultViewModel.swift in Sources */,
 				4354ADBD2B75233600757846 /* DictionaryAPI.swift in Sources */,
 				43CF9CBB2B7294A700556D4B /* ContentView.swift in Sources */,
 				43CF9CB92B7294A700556D4B /* DictionMasterApp.swift in Sources */,
 				43CF9CC72B72961500556D4B /* SplashScreenView.swift in Sources */,
 				43E4271B2B73EDC4001FEE00 /* WordModel.swift in Sources */,
+				4354ADBF2B753A8800757846 /* WordResultView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
