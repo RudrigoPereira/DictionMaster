@@ -110,7 +110,9 @@ struct WordResultView: View {
                 
                 
                 Button(action: {
-                    self.wordInput = ""
+                    DispatchQueue.main.async {
+                        self.wordInput = ""
+                    }
                     self.presentationMode.wrappedValue.dismiss()
                 }) {
                     Text("NEW SEARCH")

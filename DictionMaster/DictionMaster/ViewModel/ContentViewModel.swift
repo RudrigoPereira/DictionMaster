@@ -7,12 +7,28 @@
 
 import Foundation
 
-class WordViewModel: ObservableObject {
+class ContentViewModel: ObservableObject {
     @Published var wordInput: String = ""
     @Published var isButtonVisible: Bool = false
     @Published var isShowingResult = false
     @Published var wordInfo: WordInfo?
     @Published var showSubscribeView: Bool = false
+    
+    private var searchCache: [String: WordInfo] {
+        get {
+            if let data = UserDefaults.standard.data(forKey: "searchCache"),
+               let cache = try? JSONDecoder().decode([String: WordInfo].self, from: data) {
+                return cache
+            } else {
+                return [:]
+            }
+        }
+        set {
+            if let data = try? JSONEncoder().encode(newValue) {
+                UserDefaults.standard.set(data, forKey: "searchCache")
+            }
+        }
+    }
     
     var searchCount: Int {
         get { UserDefaults.standard.integer(forKey: "searchCount") }
@@ -26,30 +42,37 @@ class WordViewModel: ObservableObject {
     
     func searchWord() {
         let currentDate = Date()
-        if Calendar.current.isDateInToday(Date(timeIntervalSinceReferenceDate: lastSearchDate)) && searchCount >= 5 {
-            print("Limite de pesquisa diária atingido")
-            showSubscribeView = true
-            return
-        }
-        
+
         if !Calendar.current.isDateInToday(Date(timeIntervalSinceReferenceDate: lastSearchDate)) {
             searchCount = 0
             lastSearchDate = currentDate.timeIntervalSinceReferenceDate
         }
-        
-        searchCount += 1
-        fetchWordInfo()
+
+        if let cachedWordInfo = searchCache[wordInput] {
+            wordInfo = cachedWordInfo
+            isShowingResult = true
+        } else {
+            if Calendar.current.isDateInToday(Date(timeIntervalSinceReferenceDate: lastSearchDate)) && searchCount >= 5 {
+                print("Limite de pesquisa diária atingido")
+                showSubscribeView = true
+                return
+            } else {
+                fetchWordInfo()
+            }
+        }
     }
-    
+
     private func fetchWordInfo() {
+        searchCount += 1
+
         let apiService = DictionaryAPI()
         
         apiService.fetchWordInfo(for: wordInput) { result in
             switch result {
             case .success(let wordInfo):
-                print(wordInfo)
                 self.wordInfo = wordInfo
                 self.isShowingResult = true
+                self.searchCache[self.wordInput] = wordInfo
             case .failure(let error):
                 print("Erro ao obter informações da palavra: \(error)")
             }
