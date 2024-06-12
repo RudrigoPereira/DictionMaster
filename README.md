@@ -21,7 +21,7 @@ Este é um aplicativo simples de dicionário de inglês desenvolvido em SwiftUI 
 
 2. Abra o projeto no Xcode:
    - Navegue até o diretório clonado
-   - Clique duas vezes no arquivo `DicionarioIngles.xcodeproj`
+   - Clique duas vezes no arquivo `DictionMaster.xcodeproj`
 
 3. Execute o projeto no simulador iOS ou em um dispositivo físico conectado.
 
